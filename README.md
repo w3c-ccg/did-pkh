@@ -8,7 +8,7 @@ Draft spec [here](https://github.com/spruceid/ssi/blob/383cb7b3e4e8dace1c527585f
 ## List Owners
 
 Juan Caballero, Spruce, @bumblefudge 
-Charles Lehner, Spruce, @celehner
+Charles Lehner, Spruce, @clehner
 Joel Thorstensson, 3Box/Ceramic, @oed
 
 ## Work Item Questions
