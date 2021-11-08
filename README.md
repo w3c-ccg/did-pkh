@@ -3,7 +3,7 @@ We would like to open up the design process for did:pkh to a more open and consu
 
 ## Include Link to Abstract or Draft 
 
-Draft spec [here](https://github.com/spruceid/ssi/blob/383cb7b3e4e8dace1c527585f8767f882ce81a55/did-pkh/did-pkh-method-draft.md) (plain markdown)
+Draft spec [here](./did-pkh-method-draft.md) (plain markdown)
 
 ## List Owners
 
