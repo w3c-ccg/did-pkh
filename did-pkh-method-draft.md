@@ -1,6 +1,6 @@
 # did:pkh Method Specification
 
-Authors: Wayne Chang, Charles Lehner, Juan Caballero
+Authors: Wayne Chang, Charles Lehner, Juan Caballero, Joel Thorstensson
 Status: Draft
 
 ## Introduction
