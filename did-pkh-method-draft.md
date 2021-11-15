@@ -76,7 +76,7 @@ paths" for DIDs deterministically generated from existing keypairs.  Namely:
 
 ```
 pkh-did    = "did:pkh:" address
-address    = account_address according to [CAIP-10]
+address    = account_id according to [CAIP-10]
 ```
 
 ### Examples
