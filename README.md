@@ -1,6 +1,6 @@
 # did-pkh
 
-We would like to open up the design process for the did:pkh [**method specification**](did-pkh-method-draft.md) to a more open and consultative/deliberative conversation in the open.
+We would like to open up the design process for the did:pkh [**method specification**](did-pkh-method-draft.md) to a more  consultative/deliberative conversation for the broader W3C-CCG community.
 
 ## Meetings
 
