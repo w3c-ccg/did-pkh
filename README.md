@@ -8,7 +8,9 @@ Regular meetings for this CCG work item will be held every two weeks on Thursday
 [workitem-specific jitsi room](https://meet.w3c-ccg.org/didpkh) hosted by the CCG.  Minutes will be published 
 the same way as other work items.  
 
-Our **standing agenda** is first PR review, then issue review (prioritized by labels, then by stalest-first). 
+Our **standing agenda** is first [PR](https://github.com/w3c-ccg/did-pkh/pulls) review, then 
+[issue](https://github.com/w3c-ccg/did-pkh/issues) review (prioritized by labels, then by 
+[stalest-first](https://github.com/w3c-ccg/did-pkh/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-asc)). 
 At least one of three work item owners will moderate PR review and issue review (respectively) at each meeting,
 with the prioritization of the latter at the discretion of the chairs. Implementers, researchers, and community
 members are welcome to open issues if they would like clarification of the intended or possible usages of the 
