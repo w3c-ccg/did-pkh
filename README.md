@@ -16,7 +16,7 @@ with the prioritization of the latter at the discretion of the chairs. Implement
 members are welcome to open issues if they would like clarification of the intended or possible usages of the 
 method. We will use the "next meeting" tag for issues and PRs that we want to discuss soon, so the 
 [next meeting label](https://github.com/w3c-ccg/did-pkh/labels/next%20meeting) view is the fastest way to see
- n up-to-date agenda for the upcoming meeting(s). We are also glad to take requests for older issues to 
+an up-to-date agenda for the upcoming meeting(s). We are also glad to take requests for older issues to 
 *receive* that label at the end of all meetings.
 
 When agendas of interest to the general community (including ratification and review period resolutions) come 
