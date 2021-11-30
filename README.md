@@ -1,5 +1,26 @@
-# did-pkh-
-We would like to open up the design process for did:pkh to a more open and consultative/deliberative conversation in the open.
+# did-pkh
+
+We would like to open up the design process for the did:pkh [**method specification**](did-pkh-method-draft.md) to a more  consultative/deliberative conversation for the broader W3C-CCG community.
+
+## Meetings
+
+Regular meetings for this CCG work item will be held every two weeks on Thursdays at [1.30PM Eastern Time](https://www.timeanddate.com/worldclock/), on a 
+[workitem-specific jitsi room](https://meet.w3c-ccg.org/didpkh) hosted by the CCG.  Minutes will be published 
+the same way as other work items.  
+
+Our **standing agenda** is first [PR](https://github.com/w3c-ccg/did-pkh/pulls) review, then 
+[issue](https://github.com/w3c-ccg/did-pkh/issues) review (prioritized by labels, then by 
+[stalest-first](https://github.com/w3c-ccg/did-pkh/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-asc)). 
+At least one of three work item owners will moderate PR review and issue review (respectively) at each meeting,
+with the prioritization of the latter at the discretion of the chairs. Implementers, researchers, and community
+members are welcome to open issues if they would like clarification of the intended or possible usages of the 
+method. We will use the "next meeting" tag for issues and PRs that we want to discuss soon, so the 
+[next meeting label](https://github.com/w3c-ccg/did-pkh/labels/next%20meeting) view is the fastest way to see
+an up-to-date agenda for the upcoming meeting(s). We are also glad to take requests for older issues to 
+*receive* that label at the end of all meetings.
+
+When agendas of interest to the general community (including ratification and review period resolutions) come 
+up, we will manually set an agenda on the CCG mailing list in addition to this GitHub-based tracking. 
 
 ## Include Link to Abstract or Draft 
 
