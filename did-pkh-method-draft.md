@@ -1,22 +1,29 @@
 # did:pkh Method Specification
+
 Authors: Wayne Chang, Charles Lehner, Juan Caballero, Joel Thorstensson
 Status: Draft
+
 ## Introduction
+
 ### Problem Statement
+
 There are over hundreds of billions of on-chain, balance-holding accounts across
 the major 50 or so blockchains, all secured and namespaced using similar
 technologies. Almost all of these derive identifiers from hashed or otherwise
 obscured public keys, which are provided at time of transaction.
+
 These accounts are used to protect billions of dollars in assets and critical
 digital infrastructure. They are also actively being piloted and used by
 enterprises and governments. They are rapidly becoming a major form of shared
 data infrastructure across verticals and continents.
+
 DIDs should favor usability where possible, and it is extremely beneficial from
 a security & human computer interaction perspective to have DIDs that readily
 correspond to their equivalents on decentralized networks. This corresponds
 neatly to end-users' understanding of what an "account" is on an existing
 network.  There are knock-on security effects to having an
 immediately-recognizable "address" double as a DID for usage elsewhere.  
+
 It also allows most if not all blockchain accounts to instantly leverage an
 existing identity/account and deploy a W3C Decentralized Identifier from it in a
 standards-conformant way. This "DID-wrapping" of an existing identifier can be
@@ -24,20 +31,26 @@ used in combination with other DID-compatible technologies, such as W3C
 Verifiable Credentials or Authorization Capabilities, and produce proper
 signature-suite definitions, such as "metamask-signing" (signing according to
 the [[eip712]] protocol, soon to be a work item at W3C-CCG).
+
 ### Relationship to other DID architectures
+
 did:pkh bears many similarities to
 [did:key](https://w3c-ccg.github.io/did-method-key/#introduction) except it is
 optimized for identifiers derived from hashes of public keys according to
 well-known algorithms (commonly referred to as "public key hashes" because in
 most cases they are a public key hashed according to a standard hash function).
+
 ### Combination with other DID methods
+
 Another difference from did:key is that did:pkh is design to have many "upgrade
 paths" for DIDs deterministically generated from existing keypairs.  Namely:
 - if a did:pkh is controlled by a keypair which is valid for generating a
   blockchain-published DID document according to another method (for instance,
   did:tz, did:btcr or did:ethr), its did document can be translated to the form
   of that method's documents, and it can be registered there.
+
 ## Design Goals
+
 1. The primary goal of this method is to allow any valid blockchain address to
    "spin up" a feature-limited but valid and widely interoperable DID and DID
    Document, valid in a limited context where accounts are represented by DIDs. 
@@ -56,15 +69,21 @@ paths" for DIDs deterministically generated from existing keypairs.  Namely:
    context. This has implications for the degree of privacy and security that
    can be assumed. Importantly, these vary across blockchains so some use-cases
    may choose to treat PKHs differently per prefix.
+
 ## Identifier scheme
+
 ### Syntax and Interpretation
+
 ```
 pkh-did    = "did:pkh:" address
 address    = account_id according to [CAIP-10]
 ```
+
 ### Examples
+
 Here is an example from each currently supported network, linked to a sample
 JSON-LD DID document derived from each:
+
 | Network (key type) | example (linked to sample DID document) |
 |:---:|:---:|
 | btc | [did:pkh:bip122:000000000019d6689c085ae165831e93:128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:bip122:000000000019d6689c085ae165831e93:128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6.jsonld) |
@@ -76,16 +95,20 @@ JSON-LD DID document derived from each:
 | tz (tz1) | [did:pkh:tezos:NetXdQprcVkpaWU:tz1TzrmTBSuiVHV2VfMnGRMYvTEPCP42oSM8](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:tezos:NetXdQprcVkpaWU:tz1TzrmTBSuiVHV2VfMnGRMYvTEPCP42oSM8.jsonld) |
 | tz (tz2) | [did:pkh:tezos:NetXdQprcVkpaWU:tz2BFTyPeYRzxd5aiBchbXN3WCZhx7BqbMBq](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:tezos:NetXdQprcVkpaWU:tz2BFTyPeYRzxd5aiBchbXN3WCZhx7BqbMBq.jsonld) |
 | tz (tz3) | [did:pkh:tezos:NetXdQprcVkpaWU:tz3agP9LGe2cXmKQyYn6T68BHKjjktDbbSWX](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:tezos:NetXdQprcVkpaWU:tz3agP9LGe2cXmKQyYn6T68BHKjjktDbbSWX.jsonld) |
+
 As you can see, the did:pkh address simply consists of a prefix to identify the
 namespace on which the address is valid (and could be published, but isn't
 necessarily). Validity is checked according to [CAIP-10][] before
 generating.   
+
 ### Networks
+
 Note that networks (i.e., EVMs) and specific chains (i.e., ledgers, including
 private DLTs and test-nets) have to be specified separately and explicitly for
 all did-pkh addresses; in blockchain systems where accounts are controlled by
 multiple keytypes, like Tezos, the network and chain subdomains will not be
 enough to identify keytype, which must be detected from the address itself.
+
 |account type|network id (CAIP-2) + chain id (CAIP-10)|verification method type|URL for context definition|
 |---|---|---|---|
 |`tz1`|`tezos:NetXdQprcVkpaWU`|Ed25519PublicKeyBLAKE2BDigestSize20Base58CheckEncoded2021|https://w3id.org/security#Ed25519PublicKeyBLAKE2BDigestSize20Base58CheckEncoded2021|
@@ -97,11 +120,14 @@ enough to identify keytype, which must be detected from the address itself.
 |solana|`solana:4sGjMW1sUnHzSxGspuhpqLDx6wiyjNtZ`|Ed25519VerificationKey2018|https://w3id.org/security#Ed25519VerificationKey2018|
 |bitcoin mainnet|`bip122:000000000019d6689c085ae165831e93`|EcdsaSecp256k1RecoveryMethod2020|https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#EcdsaSecp256k1RecoveryMethod2020|
 |dogecoin mainnet|`bip122:1a91e3dace36e2be3bf030a65679fe82`|EcdsaSecp256k1RecoveryMethod2020|https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#EcdsaSecp256k1RecoveryMethod2020|
+
 ### Context
+
 The following should be manually inserted into each DID Document. This will
 likely change over time as new verification methods are supported, and
 general-purpose methods are specified. Term definitions may be omitted from
 these if they are not needed in particular DID documents.
+
 ```
 {
   "blockchainAccountId": "https://w3id.org/security#blockchainAccountId",
@@ -117,16 +143,21 @@ these if they are not needed in particular DID documents.
 }
 ```
 ## Operations
+
 ### Create
+
 The blockchain account id is validated according to [CAIP-10][] and then appended to
 `did:pkh:{network}:`, where `{network}` is the supported prefix corresponding to
 the blockchain where it is valid.
+
 ### Read (Resolve)
+
 Resolution implements the following interface defined in [DID Core][]:
 ```
 resolve(did, resolutionOptions) →
    « didResolutionMetadata, didDocument, didDocumentMetadata »
 ```
+
 Construct the DID Document for *did* as follows:
 - Parse the DID into its network id, *network* and account address, *address*,
   according to Syntax and Interpretation above.
@@ -156,33 +187,46 @@ Construct the DID Document for *did* as follows:
 - Construct an empty DID Document metadata object, *docMeta*.
 - Return *resMeta*, *doc*, and *docMeta*.
 
+
 ### Update
 
-No updates possible. did:pkh DID Documents are, like [did:key] documents, intended for local-only usage.
+No updates possible. did:pkh DID Documents are, like [did:key] documents, 
+intended for local-only usage.
 
 ### Delete
 
-No deletion possible. did:pkh DID Documents are, like [did:key] documents, intended for local-only usage.
+No deletion possible. did:pkh DID Documents are, like [did:key] documents, 
+intended for local-only usage.
 
 ## Security & Privacy Considerations (non-normative)
 
-There are a number of security and privacy considerations that implementers will want to take into consideration when implementing this specification. These are adapted from the analogous considerations proposed by the did:key authors.
+There are a number of security and privacy considerations that implementers 
+will want to take into consideration when implementing this specification. 
+These are adapted from the analogous considerations proposed by the did:key 
+authors.
 
 ### Key Rotation Not Supported
 
-The did:pkh method is a purely generative method, which means that updates are not supported. This can be an issue if a did:pkh is expected to be used over a long period of time. For example, if a did:pkh is ever compromised, it is not possible to rotate the compromised key. For this reason, using a did:pkh for interactions that last weeks to months is strongly discouraged.
+The did:pkh method is a purely generative method, which means that updates 
+are not supported. This can be an issue if a did:pkh is being used in a 
+context where all supported dids are assumed to be capable of rotation.
 
 ### Deactivation Not Supported
 
-The did:pkh method is a purely generative method, which means that deactivations and "tombstoning" are not supported internally, and would require a separate system with its own availablity, privacy, and security concerns. This can be an issue if a did:pkh is expected to be used over a long period of time. For example, if a did:pkh is ever compromised, it is not possible to deactivate the DID to stop an attacker from using it. For this reason, using a did:pkh for interactions that last weeks to months is strongly discouraged.
+The did:pkh method is a purely generative method, which means that 
+deactivations and "tombstoning" are not supported internally, and would 
+require a separate system with its own availablity, privacy, and security 
+concerns. This can be an issue if a did:pkh is being used in a context 
+where all supported dids are assumed to be capable of deactivation.
 
 ### Key Derivation Lacks Proof
 
-Some implementations might utlize a key derivation function when converting from an ed25519 public key to a Curve25519 ECDH key, used in the keyAgreement verification method. It is expected that this is a relatively safe operation, but implementers might consider that there exists no mathematical proof that confirms this assumption.
-
-### Long Term Usage is Discouraged
-
-Since there is no support for update and deactivate for the did:pkh method, it is not possible to recover from a security compromise. For this reason, using a did:pkh for interactions that last weeks to months is strongly discouraged. Instead, the recovery, rotation, and in most cases authentication properties of the system from which the PKH originates should be relied on directly.
+Some implementations might utlize a key derivation function, e.g., when 
+converting from an ed25519 public key to a Curve25519 ECDH key, used in the 
+keyAgreement verification method (in did-key, and perhaps in future CAIP-based
+pkh implementations). It is expected that this is a relatively safe operation, 
+but implementers might consider that there exists no mathematical proof that 
+confirms this assumption.
 
 ## Ref Impl
 
@@ -190,7 +234,9 @@ Since there is no support for update and deactivate for the did:pkh method, it i
 |:---:|:---:|:---:|:---:|
 |Spruce Systems, USA|[DIDKit](https://github.com/spruceid/didkit/)|`did-pkh` crate in ssi [core library](https://github.com/spruceid/ssi/tree/main/did-pkh)|July 2,2021|
 |3Box Labs|[pkh-did-resolver](https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/pkh-did-resolver)|-|Nov 9,2021|
+
 ## Appendix: Legacy Support
+
 An earlier version of this specification used more human-readable submethod
 namespacing rather than referring mapping directly to the CAIP naming
 convention. It also defaulted to main-net for `did:pkh:eth` in the absence of an
@@ -200,6 +246,7 @@ explicitly naming the EVM by its registered [CAIP-2][] code and explicitly
 naming the `chain_id` (as specified in [CAIP-10][]) as well.  The legacy aliases
 that Spruce's implementation also supports for backwards-compatibility with
 credentials already issued look like this:
+
 | prefix | example (linked to sample DID document) |
 |:---:|:---:|
 | btc | [did:pkh:btc:128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6](https://github.com/spruceid/ssi/blob/main/did-pkh/tests/did-btc-legacy.jsonld) |
@@ -211,6 +258,8 @@ credentials already issued look like this:
 | tz (tz1) | [did:pkh:tz:tz1TzrmTBSuiVHV2VfMnGRMYvTEPCP42oSM8](https://github.com/spruceid/ssi/blob/main/did-pkh/tests/did-tz1-legacy.jsonld) |
 | tz (tz2) | [did:pkh:tz:tz2BFTyPeYRzxd5aiBchbXN3WCZhx7BqbMBq](https://github.com/spruceid/ssi/blob/main/did-pkh/tests/did-tz2-legacy.jsonld) |
 | tz (tz3) | [did:pkh:tz:tz3agP9LGe2cXmKQyYn6T68BHKjjktDbbSWX](https://github.com/spruceid/ssi/blob/main/did-pkh/tests/did-tz3-legacy.jsonld) |
+
+
 [DID Core]: https://www.w3.org/TR/did-core/
 [did:key]: https://w3c-ccg.github.io/did-method-key/
 [verification method]: https://www.w3.org/TR/did-core/#verification-methods
