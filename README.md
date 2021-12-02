@@ -6,7 +6,7 @@ We would like to open up the design process for the did:pkh [**method specificat
 
 Regular meetings for this CCG work item will be held every two weeks on Thursdays at [1.30PM Eastern Time](https://www.timeanddate.com/worldclock/), on a 
 [workitem-specific jitsi room](https://meet.w3c-ccg.org/didpkh) hosted by the CCG.  Minutes will be published 
-in a [running markdown file](agenda1.md) here in the repo.  
+in [the meetings directory](meetings/) here in the repo.  
 
 Our **standing agenda** is first [PR](https://github.com/w3c-ccg/did-pkh/pulls) review, then 
 [issue](https://github.com/w3c-ccg/did-pkh/issues) review (prioritized by labels, then by 
