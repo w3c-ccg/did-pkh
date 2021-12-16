@@ -28,9 +28,9 @@ Draft spec [here](./did-pkh-method-draft.md) (plain markdown)
 
 ## List Owners
 
-Juan Caballero, Spruce, @bumblefudge 
-Charles Lehner, Spruce, @clehner
-Joel Thorstensson, 3Box/Ceramic, @oed
+* Juan Caballero, Spruce, @bumblefudge 
+* Charles Lehner, Spruce, @clehner
+* Joel Thorstensson, 3Box/Ceramic, @oed
 
 ## Work Item Questions
 
