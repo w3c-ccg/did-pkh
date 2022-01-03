@@ -211,6 +211,7 @@ credentials already issued look like this:
 | tz (tz1) | [did:pkh:tz:tz1TzrmTBSuiVHV2VfMnGRMYvTEPCP42oSM8](https://github.com/spruceid/ssi/blob/main/did-pkh/tests/did-tz1-legacy.jsonld) |
 | tz (tz2) | [did:pkh:tz:tz2BFTyPeYRzxd5aiBchbXN3WCZhx7BqbMBq](https://github.com/spruceid/ssi/blob/main/did-pkh/tests/did-tz2-legacy.jsonld) |
 | tz (tz3) | [did:pkh:tz:tz3agP9LGe2cXmKQyYn6T68BHKjjktDbbSWX](https://github.com/spruceid/ssi/blob/main/did-pkh/tests/did-tz3-legacy.jsonld) |
+
 [DID Core]: https://www.w3.org/TR/did-core/
 [did:key]: https://w3c-ccg.github.io/did-method-key/
 [verification method]: https://www.w3.org/TR/did-core/#verification-methods
