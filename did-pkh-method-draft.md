@@ -260,6 +260,7 @@ credentials already issued look like this:
 | tz (tz3) | [did:pkh:tz:tz3agP9LGe2cXmKQyYn6T68BHKjjktDbbSWX](https://github.com/spruceid/ssi/blob/main/did-pkh/tests/did-tz3-legacy.jsonld) |
 
 
+
 [DID Core]: https://www.w3.org/TR/did-core/
 [did:key]: https://w3c-ccg.github.io/did-method-key/
 [verification method]: https://www.w3.org/TR/did-core/#verification-methods
