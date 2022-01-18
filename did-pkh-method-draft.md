@@ -42,7 +42,7 @@ most cases, they are a public key hashed according to a standard hash function).
 
 ### Combination with other DID methods
 
-Another difference from did:key is that did:pkh is design to have many "upgrade
+Another difference from `did:key` is that `did:pkh` is designed to have many "upgrade
 paths" for DIDs deterministically generated from existing keypairs.  Namely:
 - if a `did:pkh` is controlled by a keypair which is valid for generating a
   blockchain-published DID document according to another method (such as `did:tz`,
