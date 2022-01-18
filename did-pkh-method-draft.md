@@ -7,7 +7,7 @@ Status: Draft
 
 ### Problem Statement
 
-There are over hundreds of billions of on-chain, balance-holding accounts across
+There are hundreds of billions of on-chain, balance-holding accounts across
 the major 50 or so blockchains, all secured and namespaced using similar
 technologies. Almost all of these derive identifiers from hashed or otherwise
 obscured public keys, which are provided at time of transaction.
