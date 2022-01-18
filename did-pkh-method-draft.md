@@ -195,8 +195,8 @@ intended for local-only usage.
 
 ### Delete
 
-No deletion possible. did:pkh DID Documents are, like [did:key] documents, 
-intended for local-only usage.
+No deletion possible. `did:pkh` DID Documents, like [`did:key`] documents,
+are intended for local-only usage.
 
 ## Security & Privacy Considerations (non-normative)
 
