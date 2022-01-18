@@ -34,11 +34,11 @@ the [[eip712]] protocol, soon to be a work item at W3C-CCG).
 
 ### Relationship to other DID architectures
 
-did:pkh bears many similarities to
-[did:key](https://w3c-ccg.github.io/did-method-key/#introduction) except it is
-optimized for identifiers derived from hashes of public keys according to
-well-known algorithms (commonly referred to as "public key hashes" because in
-most cases they are a public key hashed according to a standard hash function).
+`did:pkh` is similar in many ways to
+[`did:key`](https://w3c-ccg.github.io/did-method-key/#introduction), except that
+`did:pkh` is optimized for identifiers derived from hashes of public keys according
+to well-known algorithms (commonly referred to as "public key hashes", because, in
+most cases, they are a public key hashed according to a standard hash function).
 
 ### Combination with other DID methods
 
