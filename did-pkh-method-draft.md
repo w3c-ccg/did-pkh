@@ -44,9 +44,9 @@ most cases, they are a public key hashed according to a standard hash function).
 
 Another difference from did:key is that did:pkh is design to have many "upgrade
 paths" for DIDs deterministically generated from existing keypairs.  Namely:
-- if a did:pkh is controlled by a keypair which is valid for generating a
-  blockchain-published DID document according to another method (for instance,
-  did:tz, did:btcr or did:ethr), its did document can be translated to the form
+- if a `did:pkh` is controlled by a keypair which is valid for generating a
+  blockchain-published DID document according to another method (such as `did:tz`,
+  `did:btcr`, or `did:ethr`), its DID document can be translated to the form
   of that method's documents, and it can be registered there.
 
 ## Design Goals
