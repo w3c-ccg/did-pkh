@@ -20,5 +20,11 @@
   ],
   "assertionMethod": [
     "did:pkh:eip155:42220:0xa0ae58da58dfa46fa55c3b86545e7065f90ff011#blockchainAccountId"
+  ],
+  "capabilityDelegation": [
+    "did:pkh:eip155:42220:0xa0ae58da58dfa46fa55c3b86545e7065f90ff011#blockchainAccountId"
+  ],
+  "capabilityInvocation": [
+    "did:pkh:eip155:42220:0xa0ae58da58dfa46fa55c3b86545e7065f90ff011#blockchainAccountId"
   ]
 }
