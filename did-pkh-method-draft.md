@@ -1,7 +1,8 @@
 # did:pkh Method Specification
 
-Authors: Wayne Chang, Charles Lehner, Juan Caballero, Joel Thorstensson
-Status: Draft
+**Authors**: Wayne Chang, Charles Lehner, Juan Caballero, Joel Thorstensson  
+**Latest version**: https://github.com/w3c-ccg/did-pkh/blob/main/did-pkh-method-draft.md  
+**Status**: Draft  
 
 ## Introduction
 
