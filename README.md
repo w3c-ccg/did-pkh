@@ -4,7 +4,7 @@ We would like to open up the design process for the did:pkh [**method specificat
 
 ## Meetings
 
-Regular meetings for this CCG work item will be held every two weeks on Thursdays at [1.30PM Eastern Time](https://www.timeanddate.com/worldclock/), on a 
+Regular meetings for this CCG work item will be held every four weeks on Thursdays at [1.30PM Eastern Time](https://www.timeanddate.com/worldclock/), on a 
 [workitem-specific jitsi room](https://meet.w3c-ccg.org/didpkh) hosted by the CCG.  Minutes will be published 
 in [the meetings directory](meetings/) here in the repo.  
 
