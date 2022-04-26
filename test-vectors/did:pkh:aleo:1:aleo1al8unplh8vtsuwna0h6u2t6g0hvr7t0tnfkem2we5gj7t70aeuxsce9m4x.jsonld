@@ -1,0 +1,21 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/blockchain-2021/v1"
+  ],
+  "id": "did:pkh:aleo:1:aleo1al8unplh8vtsuwna0h6u2t6g0hvr7t0tnfkem2we5gj7t70aeuxsce9m4x",
+  "verificationMethod": [
+    {
+      "id": "did:pkh:aleo:1:aleo1al8unplh8vtsuwna0h6u2t6g0hvr7t0tnfkem2we5gj7t70aeuxsce9m4x#blockchainAccountId",
+      "type": "BlockchainVerificationMethod2021",
+      "controller": "did:pkh:aleo:1:aleo1al8unplh8vtsuwna0h6u2t6g0hvr7t0tnfkem2we5gj7t70aeuxsce9m4x",
+      "blockchainAccountId": "aleo:1:aleo1al8unplh8vtsuwna0h6u2t6g0hvr7t0tnfkem2we5gj7t70aeuxsce9m4x"
+    }
+  ],
+  "authentication": [
+    "did:pkh:aleo:1:aleo1al8unplh8vtsuwna0h6u2t6g0hvr7t0tnfkem2we5gj7t70aeuxsce9m4x#blockchainAccountId"
+  ],
+  "assertionMethod": [
+    "did:pkh:aleo:1:aleo1al8unplh8vtsuwna0h6u2t6g0hvr7t0tnfkem2we5gj7t70aeuxsce9m4x#blockchainAccountId"
+  ]
+}
