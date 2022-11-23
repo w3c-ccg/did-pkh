@@ -6,25 +6,25 @@
       "RsaVerificationKey2018": "https://w3c-ccg.github.io/security-vocab/#RsaVerificationKey2018"
     }
   ],
-  "id": "did:pkh:arweave:1:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk",
+  "id": "did:pkh:arweave:7wIU:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk",
   "verificationMethod": [
     {
-      "id": "did:pkh:arweave:1:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk#blockchainAccountId",
+      "id": "did:pkh:arweave:7wIU:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk#blockchainAccountId",
       "type": "RsaVerificationKey2018",
-      "controller": "did:pkh:arweave:1:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk",
-      "blockchainAccountId": "arweave:1:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk"
+      "controller": "did:pkh:arweave:7wIU:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk",
+      "blockchainAccountId": "arweave:7wIU:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk"
     }
   ],
   "authentication": [
-    "did:pkh:arweave:1:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk#blockchainAccountId"
+    "did:pkh:arweave:7wIU:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk#blockchainAccountId"
   ],
   "assertionMethod": [
-    "did:pkh:arweave:1:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk#blockchainAccountId"
+    "did:pkh:arweave:7wIU:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk#blockchainAccountId"
   ],
   "capabilityDelegation": [
-    "did:pkh:arweave:1:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk#blockchainAccountId"
+    "did:pkh:arweave:7wIU:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk#blockchainAccountId"
   ],
   "capabilityInvocation": [
-    "did:pkh:arweave:1:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk#blockchainAccountId"
+    "did:pkh:arweave:7wIU:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk#blockchainAccountId"
   ]
 }
