@@ -4,8 +4,8 @@ We would like to open up the design process for the did:pkh [**method specificat
 
 ## Meetings
 
-Regular meetings for this CCG work item will be held every four weeks on Wednesdays, from April 20th, 2022, onwards, at [12.15PM Eastern Time](https://www.timeanddate.com/worldclock/fixedtime.html?iso=2022-04-20T12:15:00&p1=179), on a
-[workitem-specific jitsi room](https://meet.w3c-ccg.org/didpkh) hosted by the CCG.  Minutes will be published 
+Regular meetings for this CCG work item ~will be held every four weeks on Wednesdays, from April 20th, 2022, onwards, at [12.15PM Eastern Time](https://www.timeanddate.com/worldclock/fixedtime.html?iso=2022-04-20T12:15:00&p1=179), on a
+[workitem-specific jitsi room](https://meet.w3c-ccg.org/didpkh) hosted by the CCG~ are on indefinite hiatus.  Minutes will be published 
 in [the meetings directory](meetings/) here in the repo.  
 
 Our **standing agenda** is first [PR](https://github.com/w3c-ccg/did-pkh/pulls) review, then 
