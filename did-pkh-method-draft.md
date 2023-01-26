@@ -234,7 +234,7 @@ confirms this assumption.
 |Author|name of implementation|link to pkh libraries|date registered|
 |:---:|:---:|:---:|:---:|
 |Spruce Systems, USA|[DIDKit](https://github.com/spruceid/didkit/)|`did-pkh` crate in ssi [core library](https://github.com/spruceid/ssi/tree/main/did-pkh)|July 2,2021|
-|3Box Labs|[pkh-did-resolver](https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/pkh-did-resolver)|-|Nov 9,2021|
+|3Box Labs|[pkh-did-resolver](https://github.com/ceramicnetwork/js-did/tree/main/packages/pkh-did-resolver)|-|Nov 9,2021|
 
 ## Appendix: Legacy Support
 
