@@ -30,8 +30,9 @@ existing identity/account and deploy a W3C Decentralized Identifier from it in a
 standards-conformant way. This "DID-wrapping" of an existing identifier can be
 used in combination with other DID-compatible technologies, such as W3C
 Verifiable Credentials or Authorization Capabilities, and produce proper
-signature-suite definitions, such as "metamask-signing" (signing according to
-the [eip712][] protocol).
+signature-suite definitions, such as "metamask-signing" (off-chain signing by
+externally-owned accounts, i.e. personal wallet, according to the [eip712][]
+protocol).
 
 ### Relationship to other DID architectures
 
@@ -49,6 +50,12 @@ paths" for DIDs deterministically generated from existing keypairs.  Namely:
   blockchain-published DID document according to another method (such as `did:tz`,
   `did:btcr`, or `did:ethr`), its DID document can be translated to the form
   of that method's documents, and it can be registered there.
+- if a web application or dapp can interact with a blockchain wallet to produce
+  deterministic, signed receipts of `did:pkh` consent/authorization events such
+  those specified by the Sign-In With Ethereum ([SIWE][]) or Sign-In With
+  Anything ([SIWX][]), such as [CACAO][] objects, these can be used to make that
+  `did:pkh` identifier the `controller` of a second DID, given that said second
+  DID method supports `controller` patterns.
 
 ## Design Goals
 
@@ -56,14 +63,16 @@ paths" for DIDs deterministically generated from existing keypairs.  Namely:
    "spin up" a feature-limited but valid and widely interoperable DID and DID
    Document, valid in a limited context where accounts are represented by DIDs. 
 2. This method is very narrow and unopinionated to allow a wide range of
-   implementations.
+   implementations. For example, some blockchain systems do and some do not
+   enable deterministic public key "recovery" from a signature and public key
+   hash, which leads to very different verification methods across pkh types.
 3. For example, the validity of each address to be wrapped in a DID is checked
-   according to the [CAIP-10][] standard before generating, to prevent a did:pkh
-   being presented as valid that would not be on its corresponding blockchain.
-   **No further validation** is assumed or provided in the reference
-   implemention, but implementers may still choose to gate generation to
-   on-chain accounts or balance-holding accounts as per the requirements of
-   their specific use case.
+   according to the [CAIP-10][] specification before generating a DID document,
+   to prevent a did:pkh being presented as valid that would not be on its
+   corresponding blockchain. **No further validation** is assumed or provided in
+   the reference implemention, but implementers may still choose to gate
+   generation to on-chain accounts or balance-holding accounts as per the
+   requirements of their specific use case.
 4. As this method is designed for interoperability with blockchain web wallets,
    authentication and signing functions are left to the blockchain-specific
    capabilities of the wallets supported by a given implementation, "dApp", or
@@ -274,4 +283,7 @@ credentials already issued look like this:
 [CAIP-2]: https://chainagnostic.org/CAIPs/caip-2
 [namespaces]: https://namespaces.chainagnostic.org/
 [CASA]: https://github.com/chainagnostic/
+[SIWE]: https://eips.ethereum.org/EIPS/eip-4361
+[SIWX]: https://chainagnostic.org/CAIPs/caip-122
+[CACAO]: https://chainagnostic.org/CAIPs/caip-74
 [eip712]: https://github.com/uport-project/ethereum-eip712-signature-2021-spec
