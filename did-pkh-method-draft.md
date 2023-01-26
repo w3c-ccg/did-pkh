@@ -87,6 +87,7 @@ JSON-LD DID document derived from each:
 
 | Network (key type) | example (linked to sample DID document) |
 |:---:|:---:|
+| arweave | [did:pkh:arweave:7wIU:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:arweave:7wIU:kY9RAgTJEImkBpiKgVeXrsGV02T-D4dI3ZvSpnn7HSk.jsonld) |
 | btc | [did:pkh:bip122:000000000019d6689c085ae165831e93:128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:bip122:000000000019d6689c085ae165831e93:128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6.jsonld) |
 | doge | [did:pkh:bip122:1a91e3dace36e2be3bf030a65679fe82:DH5yaieqoZN36fDVciNyRueRGvGLR3mr7L](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:bip122:1a91e3dace36e2be3bf030a65679fe82:DH5yaieqoZN36fDVciNyRueRGvGLR3mr7L.jsonld) |
 | eth (mainnet) | [did:pkh:eip155:1:0xb9c5714089478a327f09197987f16f9e5d936e8a](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:eip155:1:0xb9c5714089478a327f09197987f16f9e5d936e8a.jsonld) |
