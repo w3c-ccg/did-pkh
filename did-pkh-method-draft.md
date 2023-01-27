@@ -71,8 +71,8 @@ paths" for DIDs deterministically generated from existing keypairs.  Namely:
    to prevent a did:pkh being presented as valid that would not be on its
    corresponding blockchain. **No further validation** is assumed or provided in
    the reference implemention, but implementers may still choose to gate
-   generation to on-chain accounts or balance-holding accounts as per the
-   requirements of their specific use case.
+   generation to on-chain accounts and/or to balance-holding accounts, among
+   other tests, according to the requirements of their specific use case.
 4. As this method is designed for interoperability with blockchain web wallets,
    authentication and signing functions are left to the blockchain-specific
    capabilities of the wallets supported by a given implementation, "dApp", or
