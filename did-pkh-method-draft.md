@@ -68,7 +68,7 @@ paths" for DIDs deterministically generated from existing keypairs.  Namely:
    hash, which leads to very different verification methods across pkh types.
 3. For example, the validity of each address to be wrapped in a DID is checked
    according to the [CAIP-10][] specification before generating a DID document,
-   to prevent a did:pkh being presented as valid that would not be on its
+   to prevent a `did:pkh` being presented as valid that would not be on its
    corresponding blockchain. **No further validation** is assumed or provided in
    the reference implemention, but implementers may still choose to gate
    generation to on-chain accounts and/or to balance-holding accounts, among
