@@ -31,7 +31,7 @@ standards-conformant way. This "DID-wrapping" of an existing identifier can be
 used in combination with other DID-compatible technologies, such as W3C
 Verifiable Credentials or Authorization Capabilities, and produce proper
 signature-suite definitions, such as "metamask-signing" (off-chain signing by
-externally-owned accounts, i.e. personal wallet, according to the [eip712][]
+externally-owned accounts, i.e., personal wallets, according to the [eip712][]
 protocol).
 
 ### Relationship to other DID architectures
