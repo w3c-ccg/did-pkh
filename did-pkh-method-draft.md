@@ -63,7 +63,7 @@ paths" for DIDs deterministically generated from existing keypairs.  Namely:
    "spin up" a feature-limited but valid and widely interoperable DID and DID
    Document, valid in a limited context where accounts are represented by DIDs. 
 2. This method is very narrow and unopinionated to allow a wide range of
-   implementations. For example, some blockchain systems do and some do not
+   implementations. For example, some blockchain systems do — and some do not —
    enable deterministic public key "recovery" from a signature and public key
    hash, which leads to very different verification methods across pkh types.
 3. For example, the validity of each address to be wrapped in a DID is checked
