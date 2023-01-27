@@ -52,7 +52,7 @@ paths" for DIDs deterministically generated from existing keypairs.  Namely:
   of that method's documents, and it can be registered there.
 - if a web application or dapp can interact with a blockchain wallet to produce
   deterministic, signed receipts of `did:pkh` consent/authorization events such
-  those specified by the Sign-In With Ethereum ([SIWE][]) or Sign-In With
+  as those specified by the Sign-In With Ethereum ([SIWE][]) or Sign-In With
   Anything ([SIWX][]), such as [CACAO][] objects, these can be used to make that
   `did:pkh` identifier the `controller` of a second DID, given that said second
   DID method supports `controller` patterns.
