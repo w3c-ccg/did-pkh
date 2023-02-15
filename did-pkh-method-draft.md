@@ -30,8 +30,9 @@ existing identity/account and deploy a W3C Decentralized Identifier from it in a
 standards-conformant way. This "DID-wrapping" of an existing identifier can be
 used in combination with other DID-compatible technologies, such as W3C
 Verifiable Credentials or Authorization Capabilities, and produce proper
-signature-suite definitions, such as "metamask-signing" (signing according to
-the [[eip712]] protocol, soon to be a work item at W3C-CCG).
+signature-suite definitions, such as "metamask-signing" (off-chain signing by
+externally-owned accounts, i.e., personal wallets, according to the [eip712][]
+protocol).
 
 ### Relationship to other DID architectures
 
@@ -49,6 +50,12 @@ paths" for DIDs deterministically generated from existing keypairs.  Namely:
   blockchain-published DID document according to another method (such as `did:tz`,
   `did:btcr`, or `did:ethr`), its DID document can be translated to the form
   of that method's documents, and it can be registered there.
+- if a web application or dapp can interact with a blockchain wallet to produce
+  deterministic, signed receipts of `did:pkh` consent/authorization events such
+  as those specified by the Sign-In With Ethereum ([SIWE][]) or Sign-In With
+  Anything ([SIWX][]), such as [CACAO][] objects, these can be used to make that
+  `did:pkh` identifier the `controller` of a second DID, given that said second
+  DID method supports `controller` patterns.
 
 ## Design Goals
 
@@ -56,14 +63,16 @@ paths" for DIDs deterministically generated from existing keypairs.  Namely:
    "spin up" a feature-limited but valid and widely interoperable DID and DID
    Document, valid in a limited context where accounts are represented by DIDs. 
 2. This method is very narrow and unopinionated to allow a wide range of
-   implementations.
+   implementations. For example, some blockchain systems do — and some do not —
+   enable deterministic public key "recovery" from a signature and public key
+   hash, which leads to very different verification methods across pkh types.
 3. For example, the validity of each address to be wrapped in a DID is checked
-   according to the [CAIP-10] standard before generating, to prevent a did:pkh
-   being presented as valid that would not be on its corresponding blockchain.
-   **No further validation** is assumed or provided in the reference
-   implemention, but implementers may still choose to gate generation to
-   on-chain accounts or balance-holding accounts as per the requirements of
-   their specific use case.
+   according to the [CAIP-10][] specification before generating a DID document,
+   to prevent a `did:pkh` being presented as valid that would not be on its
+   corresponding blockchain. **No further validation** is assumed or provided in
+   the reference implemention, but implementers may still choose to gate
+   generation to on-chain accounts and/or to balance-holding accounts, among
+   other tests, according to the requirements of their specific use case.
 4. As this method is designed for interoperability with blockchain web wallets,
    authentication and signing functions are left to the blockchain-specific
    capabilities of the wallets supported by a given implementation, "dApp", or
@@ -94,9 +103,9 @@ JSON-LD DID document derived from each:
 | celo | [did:pkh:eip155:42220:0xa0ae58da58dfa46fa55c3b86545e7065f90ff011](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:eip155:42220:0xa0ae58da58dfa46fa55c3b86545e7065f90ff011.jsonld) |
 | solana | [did:pkh:solana:4sGjMW1sUnHzSxGspuhpqLDx6wiyjNtZ:CKg5d12Jhpej1JqtmxLJgaFqqeYjxgPqToJ4LBdvG9Ev](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:solana:4sGjMW1sUnHzSxGspuhpqLDx6wiyjNtZ:CKg5d12Jhpej1JqtmxLJgaFqqeYjxgPqToJ4LBdvG9Ev.jsonld) |
 | poly | [did:pkh:eip155:137:0x4e90e8a8191c1c23a24a598c3ab4fb47ce926ff5](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:eip155:137:0x4e90e8a8191c1c23a24a598c3ab4fb47ce926ff5.jsonld) |
-| tz (tz1) | [did:pkh:tezos:NetXdQprcVkpaWU:tz1TzrmTBSuiVHV2VfMnGRMYvTEPCP42oSM8](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:tezos:NetXdQprcVkpaWU:tz1TzrmTBSuiVHV2VfMnGRMYvTEPCP42oSM8.jsonld) |
-| tz (tz2) | [did:pkh:tezos:NetXdQprcVkpaWU:tz2BFTyPeYRzxd5aiBchbXN3WCZhx7BqbMBq](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:tezos:NetXdQprcVkpaWU:tz2BFTyPeYRzxd5aiBchbXN3WCZhx7BqbMBq.jsonld) |
-| tz (tz3) | [did:pkh:tezos:NetXdQprcVkpaWU:tz3agP9LGe2cXmKQyYn6T68BHKjjktDbbSWX](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:tezos:NetXdQprcVkpaWU:tz3agP9LGe2cXmKQyYn6T68BHKjjktDbbSWX.jsonld) |
+| tezos (`tz1`) | [did:pkh:tezos:NetXdQprcVkpaWU:tz1TzrmTBSuiVHV2VfMnGRMYvTEPCP42oSM8](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:tezos:NetXdQprcVkpaWU:tz1TzrmTBSuiVHV2VfMnGRMYvTEPCP42oSM8.jsonld) |
+| tezos (`tz2`) | [did:pkh:tezos:NetXdQprcVkpaWU:tz2BFTyPeYRzxd5aiBchbXN3WCZhx7BqbMBq](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:tezos:NetXdQprcVkpaWU:tz2BFTyPeYRzxd5aiBchbXN3WCZhx7BqbMBq.jsonld) |
+| tezos (`tz3`) | [did:pkh:tezos:NetXdQprcVkpaWU:tz3agP9LGe2cXmKQyYn6T68BHKjjktDbbSWX](https://github.com/w3c-ccg/did-pkh/blob/main/test-vectors/did:pkh:tezos:NetXdQprcVkpaWU:tz3agP9LGe2cXmKQyYn6T68BHKjjktDbbSWX.jsonld) |
 
 As you can see, the did:pkh address simply consists of a prefix to identify the
 namespace on which the address is valid (and could be published, but isn't
@@ -109,13 +118,16 @@ Note that networks (i.e., EVMs) and specific chains (i.e., ledgers, including
 private DLTs and test-nets) have to be specified separately and explicitly for
 all did-pkh addresses; in blockchain systems where accounts are controlled by
 multiple keytypes, like Tezos, the network and chain subdomains will not be
-enough to identify keytype, which must be detected from the address itself.
+enough to identify keytype, which must be detected from the address itself.  For
+more background and context on the specifications and addressing systems of a
+given network, see that network's entries in the [namespaces][] project of the
+Chain Agnostic Standards Alliance ([CASA][]).
 
 |account type|network id (CAIP-2) + chain id (CAIP-10)|verification method type|URL for context definition|
 |---|---|---|---|
-|`tz1`|`tezos:NetXdQprcVkpaWU`|Ed25519PublicKeyBLAKE2BDigestSize20Base58CheckEncoded2021|https://w3id.org/security#Ed25519PublicKeyBLAKE2BDigestSize20Base58CheckEncoded2021|
-|`tz`|`tezos:NetXdQprcVkpaWU`|EcdsaSecp256k1RecoveryMethod2020|https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#EcdsaSecp256k1RecoveryMethod2020|
-|`tz`|`tezos:NetXdQprcVkpaWU`|P256PublicKeyBLAKE2BDigestSize20Base58CheckEncoded2021|https://w3id.org/security#P256PublicKeyBLAKE2BDigestSize20Base58CheckEncoded2021|
+|tezos (`tz1`)|`tezos:NetXdQprcVkpaWU`|Ed25519PublicKeyBLAKE2BDigestSize20Base58CheckEncoded2021|https://w3id.org/security#Ed25519PublicKeyBLAKE2BDigestSize20Base58CheckEncoded2021|
+|tezos (`tz2`)|`tezos:NetXdQprcVkpaWU`|EcdsaSecp256k1RecoveryMethod2020|https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#EcdsaSecp256k1RecoveryMethod2020|
+|tezos (`tz3`)|`tezos:NetXdQprcVkpaWU`|P256PublicKeyBLAKE2BDigestSize20Base58CheckEncoded2021|https://w3id.org/security#P256PublicKeyBLAKE2BDigestSize20Base58CheckEncoded2021|
 |ethereum mainnet|`eip155:1`|EcdsaSecp256k1RecoveryMethod2020|https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#EcdsaSecp256k1RecoveryMethod2020|
 |celo mainnet|`eip155:42220`|EcdsaSecp256k1RecoveryMethod2020|https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#EcdsaSecp256k1RecoveryMethod2020|
 |polygon mainnet|`eip155:137`|EcdsaSecp256k1RecoveryMethod2020|https://identity.foundation/EcdsaSecp256k1RecoverySignature2020#EcdsaSecp256k1RecoveryMethod2020|
@@ -267,6 +279,11 @@ credentials already issued look like this:
 [did:key]: https://w3c-ccg.github.io/did-method-key/
 [verification method]: https://www.w3.org/TR/did-core/#verification-methods
 [blockchainaccountid]: https://www.w3.org/TR/did-spec-registries/#blockchainaccountid
-[CAIP-10]: https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-10.md
-[CAIP-2]: https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-2.md
+[CAIP-10]: https://chainagnostic.org/CAIPs/caip-10
+[CAIP-2]: https://chainagnostic.org/CAIPs/caip-2
+[namespaces]: https://namespaces.chainagnostic.org/
+[CASA]: https://github.com/chainagnostic/
+[SIWE]: https://eips.ethereum.org/EIPS/eip-4361
+[SIWX]: https://chainagnostic.org/CAIPs/caip-122
+[CACAO]: https://chainagnostic.org/CAIPs/caip-74
 [eip712]: https://github.com/uport-project/ethereum-eip712-signature-2021-spec
