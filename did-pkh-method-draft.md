@@ -160,9 +160,25 @@ these if they are not needed in particular DID documents.
 
 ### Create
 
-The blockchain account id is validated according to [CAIP-10][] and then appended to
-`did:pkh:{network}:`, where `{network}` is the supported prefix corresponding to
-the blockchain where it is valid.
+The blockchain account id is validated according to [CAIP-10][] and then
+appended to `did:pkh:{network}:`, where `{network}` is the supported prefix
+corresponding to the blockchain ecosystem within which it is valid. No DID
+Document should be returned for a DID URL that is not a valid [CAIP-10][] URI.
+
+In some contexts, such as in web-based interfaces for Solana or Tezos wallets, a
+public key is traditionally passed by wallets to counterparties as part of
+authentication, without which signatures cannot be verified and submitted to
+public ledgers. In other contexts, such as in web-based interfaces for Ethereum
+wallets, a public key is cryptographically [recoverable][EC Recovery for
+secp256k1] from a signature over a known message, but unknowable without one. In
+all of these cases, a DID URL containing only the public-key hash will not be
+enough to recover the corresponding public key and thus generate a useful DID
+document; instead, a query parameter `pk` (i.e. `?pk=`) can be appended to a DID
+PKH URL such that a DID document can be generated for that DID PKH URL. For a
+valid DID URL (i.e. one conforming to [CAIP-10]) without the additional
+information needed to generate a DID Document, an "empty" DID document
+(containing no key material) should be created to signify failure to
+authenticate the wallet or inadequate access to such information.
 
 ### Read (Resolve)
 
@@ -242,7 +258,7 @@ pkh implementations). It is expected that this is a relatively safe operation,
 but implementers might consider that there exists no mathematical proof that 
 confirms this assumption.
 
-## Ref Impl
+## Known Implementations
 
 |Author|name of implementation|link to pkh libraries|date registered|
 |:---:|:---:|:---:|:---:|
@@ -252,14 +268,14 @@ confirms this assumption.
 ## Appendix: Legacy Support
 
 An earlier version of this specification used more human-readable submethod
-namespacing rather than referring mapping directly to the CAIP naming
-convention. It also defaulted to main-net for `did:pkh:eth` in the absence of an
-explicit chainID.  As the scope has grown of this project, and with forward
-compatibility in mind, both of these patterns have been removed, required
-explicitly naming the EVM by its registered [CAIP-2][] code and explicitly
-naming the `chain_id` (as specified in [CAIP-10][]) as well.  The legacy aliases
-that Spruce's implementation also supports for backwards-compatibility with
-credentials already issued look like this:
+namespacing rather than referring directly to the CAIP naming convention. It
+also defaulted to main-net for `did:pkh:eth` in the absence of an explicit
+chainID.  As the scope has grown of this project, and with forward compatibility
+in mind, both of these patterns have been removed, required explicitly naming
+the EVM by its registered [CAIP-2][] code and explicitly naming the `chain_id`
+(as specified in [CAIP-10][]) as well.  The legacy aliases that Spruce's
+implementation also supports for backwards-compatibility with credentials
+already issued look like this:
 
 | prefix | example (linked to sample DID document) |
 |:---:|:---:|
@@ -287,3 +303,5 @@ credentials already issued look like this:
 [SIWX]: https://chainagnostic.org/CAIPs/caip-122
 [CACAO]: https://chainagnostic.org/CAIPs/caip-74
 [eip712]: https://github.com/uport-project/ethereum-eip712-signature-2021-spec
+[EC Recovery for secp256k1]: https://cryptobook.nakov.com/digital-signatures/ecdsa-sign-verify-messages#ecdsa-verify-signature
+[ECDSA Recovery]: http://www.secg.org/sec1-v2.pdf
